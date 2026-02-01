@@ -607,6 +607,24 @@ int UnlinkFile(
                 uareaobj.UFDT[i]->ptrinode->ReferenceCount = 0;
                 uareaobj.UFDT[i]->ptrinode->Permission = 0;
 
+                //////////////////////////////////////////////////////////////////////////////////
+                //
+                //  Use of memset()
+                //  Description :
+                //      memset() is used to clear a block of memory by setting all bytes
+                //      to a specific value. In this project, it is used while deleting
+                //      a file to erase the file name stored in the inode.
+                //
+                //  Why it is used :
+                //      When a file is deleted, the inode is reused for future files.
+                //      Clearing the old file name avoids garbage values and ensures
+                //      correct file listing and existence checks.
+                //
+                //  Statement Used :
+                //      memset(ptrinode->FileName, '\0', sizeof(ptrinode->FileName));
+                //
+                //////////////////////////////////////////////////////////////////////////////////
+
                 memset(uareaobj.UFDT[i]->ptrinode->FileName, '\0', sizeof(uareaobj.UFDT[i]->ptrinode->FileName));
 
                 //  Deallocate memory of file table
