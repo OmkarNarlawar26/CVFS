@@ -180,7 +180,7 @@ void InitialiseUAREA()
         uareaobj.UFDT[i] = NULL;        // No file opened initially
     }
 
-    printf("Marvellous CVFS : UAREA gets initialised successfully\n");
+    printf("Omkar's CVFS : UAREA gets initialised successfully\n");
 }
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -200,7 +200,7 @@ void InitialiseSuperBlock()
     superobj.TotalInodes = MAXINODE;
     superobj.FreeInodes = MAXINODE;
 
-    printf("Marvellous CVFS : Super block gets initialised successfully\n");
+    printf("Omkar's CVFS : Super block gets initialised successfully\n");
 }
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -250,7 +250,7 @@ void CreateDILB()
         }
     }
 
-    printf("Marvellous CVFS : DILB created successfully\n");
+    printf("Omkar's CVFS : DILB created successfully\n");
 }
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -273,7 +273,7 @@ void CreateDILB()
 
 void StartAuxillaryDataInitialisation()
 {
-    strcpy(bootobj.Information,"Booting process of Marvellous CVFS is done");
+    strcpy(bootobj.Information,"Booting process of Omkar's CVFS is done");
 
     printf("%s\n",bootobj.Information);
 
@@ -283,7 +283,7 @@ void StartAuxillaryDataInitialisation()
 
     InitialiseUAREA();
 
-    printf("Marvellous CVFS : Auxillary data initialise successfully\n");
+    printf("Omkar's CVFS : Auxillary data initialise successfully\n");
 }
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -302,7 +302,7 @@ void StartAuxillaryDataInitialisation()
 void DisplayHelp()
 {
     printf("--------------------------------------------------------------------\n");
-    printf("---------------------Marvellous CVFS Help Page----------------------\n");
+    printf("---------------------Omkar's CVFS Help Page----------------------\n");
     printf("--------------------------------------------------------------------\n");
     printf("\n");
     
@@ -314,7 +314,7 @@ void DisplayHelp()
     printf("read    : It is used to read the data from the file\n");
     printf("stat    : It is used to display statistical information\n");
     printf("unlink  : It is used to delete the file\n");
-    printf("exit    : It is use to terminate Marvellous CVFS\n");
+    printf("exit    : It is use to terminate Omkar's CVFS\n");
     
     printf("\n");
     printf("--------------------------------------------------------------------\n");
@@ -539,7 +539,7 @@ void LsFile()
     PINODE temp = head;
 
     printf("--------------------------------------------------------------------\n");
-    printf("-----------------Marvellous CVFS Files Information------------------\n");
+    printf("-----------------Omkar's CVFS Files Information------------------\n");
     
     while(temp != NULL)
     {
@@ -765,18 +765,16 @@ int ReadFile(
 //////////////////////////////////////////////////////////////////////////////////
 //
 //  Function Name :         main
-//  Description  :          Entry point of Marvellous CVFS shell.
+//  Description  :          Entry point of Omkar's CVFS shell.
 //                          It initialises the system and continuously
 //                          accepts user commands to perform file
 //                          operations like create, read, write, delete,
 //                          list files etc.
-//
 //  Working :               - Initialises auxiliary data
 //                          - Displays startup banner
 //                          - Runs infinite command processing loop
 //                          - Parses and executes user commands
 //                          - Terminates only when user enters 'exit'
-//
 //  Author :                Omkar Sachin Naralwar
 //  Date :                  22/01/2026
 //
@@ -798,7 +796,7 @@ int main()
 
     printf("\n");
     printf("--------------------------------------------------------------------\n");
-    printf("----------------Marvellous CVFS started Successfully----------------\n");
+    printf("----------------Omkar's CVFS started Successfully----------------\n");
     printf("--------------------------------------------------------------------\n");
 
     // Infinite listening Shell
@@ -809,7 +807,7 @@ int main()
         strcpy(str,"");                 // Reset command string
 
         // Display shell prompt
-        printf("\nMarvellous CVFS : > ");
+        printf("\nOmkar's CVFS : > ");
 
         // Accept full command line from user
         fgets(str,sizeof(str),stdin);
@@ -825,31 +823,31 @@ int main()
         if(iCount == 1)
         {
             //  exit command : terminates CVFS
-            //  Marvellous CVFS : > exit
+            //  Omkar's CVFS : > exit
             if(strcmp("exit",Command[0]) == 0)
             {
-                printf("Thank you for using Marvellous CVFS\n");
+                printf("Thank you for using Omkar's CVFS\n");
                 printf("Deallocating all the allocated resources\n");
 
                 break;
             }
 
             //  ls command : list all files
-            //  Marvellous CVFS : > ls
+            //  Omkar's CVFS : > ls
             else if(strcmp("ls",Command[0]) == 0)
             {
                 LsFile();
             }
 
             //  help command : display help page
-            //  Marvellous CVFS : > help
+            //  Omkar's CVFS : > help
             else if(strcmp("help",Command[0]) == 0)
             {
                 DisplayHelp();
             }
 
             //  clear command : clear terminal screen
-            //  Marvellous CVFS : > clear
+            //  Omkar's CVFS : > clear
             else if(strcmp("clear",Command[0]) == 0)
             {
                 #ifdef _WIN32
@@ -871,14 +869,14 @@ int main()
         else if(iCount == 2)
         {
             //  man command : show manual page of given command
-            //  Marvellous CVFS : > man ls
+            //  Omkar's CVFS : > man ls
             if(strcmp("man",Command[0]) == 0)
             {
                 ManPageDisplay(Command[1]);
             }
 
             //  unlink command : delete given file
-            //  Marvellous CVFS : > unlink Demo.txt
+            //  Omkar's CVFS : > unlink Demo.txt
             else if(strcmp("unlink",Command[0]) == 0)
             {
                 iRet = UnlinkFile(Command[1]);
@@ -900,7 +898,7 @@ int main()
             }
 
             //  write command : write data into file using FD
-            //  Marvellous CVFD : > write 2   (here 2 is considered as fd)
+            //  Omkar's CVFD : > write 2   (here 2 is considered as fd)
             else if(strcmp("write",Command[0]) == 0)
             {
                 printf("Enter the data that you want to write : \n");
@@ -945,7 +943,7 @@ int main()
         else if(iCount == 3)
         {
             //  creat command : create new file with permission
-            //  Marvellous CVFS : > creat Ganesh.txt 3
+            //  Omkar's CVFS : > creat Ganesh.txt 3
             if(strcmp("creat",Command[0]) == 0)
             {
                 iRet = CreateFile(Command[1],atoi(Command[2]));     // atoi is ascii to integer 
@@ -978,7 +976,7 @@ int main()
                 }
             }
             //  read command : read given number of bytes from file
-            //  Marvellous CVFS : > read 3 10
+            //  Omkar's CVFS : > read 3 10
             else if(strcmp("read",Command[0]) == 0)
             {
                 // Allocate memory for read buffer
